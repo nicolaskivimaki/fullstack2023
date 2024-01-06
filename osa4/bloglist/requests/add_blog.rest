@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Sinikan elämä",
+    "author": "Sinikka Sininen",
+    "url": "https://life-of-sinikka-blog.com",
+    "likes": 35
+}
