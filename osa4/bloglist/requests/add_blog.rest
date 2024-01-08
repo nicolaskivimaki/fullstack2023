@@ -1,9 +1,11 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikpvbm5lIiwiaWQiOiI2NTliMTg2MDMyMjQyNzI2MDdmNGYxYWEiLCJpYXQiOjE3MDQ2NjQ1ODB9.U9r_JCDazHp2iqXRN3PaykUvWCf_Z4b8ZLJhZsrmmNg
 
 {
-    "title": "Timon elämä",
-    "author": "Timo Timonen",
-    "url": "https://life-of-timo-blog.com",
-    "likes": 7045000
-  }
+  "title": "Timon elämä",
+  "author": "Timo Timonen",
+  "url": "https://life-of-timo-blog.com",
+  "likes": 7045000,
+  "userId": "659b18603224272607f4f1aa"
+}
