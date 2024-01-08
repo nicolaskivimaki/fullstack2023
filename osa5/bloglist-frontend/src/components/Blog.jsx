@@ -13,11 +13,11 @@ const Blog = ({ blog, changeLikesOfBlog, handleBlogDelete, user }) => {
   }
 
   const showInfo = () => (
-    <div> 
+    <div>
       <p>{blog.url}</p>
       <p>{blog.likes}
-      <button onClick={changeLikesOfBlog}
-      >like</button></p>
+        <button onClick={changeLikesOfBlog}
+        >like</button></p>
       <p>{blog.user.username}</p>
       {user.username === blog.user.username && (<button onClick={handleBlogDelete}>delete</button>)}
     </div>
@@ -41,11 +41,12 @@ const Blog = ({ blog, changeLikesOfBlog, handleBlogDelete, user }) => {
       <button onClick={changeInfoStatus}>{label}</button>
       {state === true ? showInfo() : null}
     </div>
-)}
+  )}
 
 Blog.propTypes = {
   changeLikesOfBlog: PropTypes.func.isRequired,
-  handleBlogDelete: PropTypes.func.isRequired
+  handleBlogDelete: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 }
 
 export default Blog

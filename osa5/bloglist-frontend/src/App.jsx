@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import Blog from './components/Blog'
 import Notification from './components/Notification'
 import Error from './components/Error'
-import BlogForm from "./components/BlogForm"
-import Togglable from "./components/Togglable"
+import BlogForm from './components/BlogForm'
+import Togglable from './components/Togglable'
 import Footer from './components/Footer'
 import blogService from './services/blogs'
 import loginService from './services/login'
@@ -12,7 +12,7 @@ const App = () => {
   const [blogs, setBlogs] = useState([])
   const [errorMessage, setErrorMessage] = useState(null)
   const [notification, setNotification] = useState(null)
-  const [username, setUsername] = useState('') 
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
   const blogFormRef = useRef()
@@ -73,7 +73,7 @@ const App = () => {
         })
       })
   }
-  
+
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
@@ -83,7 +83,7 @@ const App = () => {
 
       window.localStorage.setItem(
         'loggedBlogappUser', JSON.stringify(user)
-      ) 
+      )
       blogService.setToken(user.token)
       setUser(user)
       setUsername('')
@@ -101,13 +101,13 @@ const App = () => {
     window.localStorage.removeItem('loggedBlogappUser')
     setUser(null)
     blogService.setToken(null)
-}
+  }
 
   const loginForm = () => (
     <form onSubmit={handleLogin}>
       <div>
         username
-          <input
+        <input
           type="text"
           value={username}
           name="Username"
@@ -116,7 +116,7 @@ const App = () => {
       </div>
       <div>
         password
-          <input
+        <input
           type="password"
           value={password}
           name="Password"
@@ -124,7 +124,7 @@ const App = () => {
         />
       </div>
       <button type="submit">login</button>
-    </form>      
+    </form>
   )
 
   const handleBlogDelete = id => {
@@ -135,17 +135,17 @@ const App = () => {
     )
 
     if (confirmation) {
-        blogService
-            .deleteBlog(id)
-            .then(() => {
-                setBlogs(originalBlogs => originalBlogs.filter(({ id }) => id !== blog.id))
-                setNotification(`Deleted ${blog.title} by ${blog.author}`)
-                setTimeout(() => {
-                  setNotification(null)
-                }, 5000)
-            })
+      blogService
+        .deleteBlog(id)
+        .then(() => {
+          setBlogs(originalBlogs => originalBlogs.filter(({ id }) => id !== blog.id))
+          setNotification(`Deleted ${blog.title} by ${blog.author}`)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
     }
-}
+  }
 
   if (user === null) {
     return (
@@ -166,16 +166,16 @@ const App = () => {
       <div>
         <p>{user.name} logged in</p>
         <form onSubmit={handleLogout}>
-            <button type="submit">logout</button>
+          <button type="submit">logout</button>
         </form>
         <Togglable buttonLabel='new blog' ref={blogFormRef}>
-            <BlogForm createBlog={addBlog} />
-          </Togglable>
+          <BlogForm createBlog={addBlog} />
+        </Togglable>
         {blogs.sort((a,b) => b.likes - a.likes).map(blog =>
-          <Blog key={blog.id} blog={blog} 
-          changeLikesOfBlog={() => changeLikesOfBlog(blog.id)}
-          handleBlogDelete={() => handleBlogDelete(blog.id)}
-          user={user}/>
+          <Blog key={blog.id} blog={blog}
+            changeLikesOfBlog={() => changeLikesOfBlog(blog.id)}
+            handleBlogDelete={() => handleBlogDelete(blog.id)}
+            user={user}/>
         )}
       </div>
     </div>
