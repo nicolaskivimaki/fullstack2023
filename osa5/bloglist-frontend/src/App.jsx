@@ -39,25 +39,21 @@ const App = () => {
     }
   }, [])
 
-  const addBlog = (event) => {
-    event.preventDefault()
-    const blogObject = {
-      url: url,
-      title: title,
-      author: author
-    }
-
+  const addBlog = (blogObject) => {
+    blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
-        setUrl('')
-        setTitle('')
-        setAuthor('')
-        blogFormRef.current.toggleVisibility()
         setNotification(`Yay! You successfully added ${blogObject.title} by ${blogObject.author}!`)
         setTimeout(() => {
           setNotification(null)
+        }, 5000)
+      })
+      .catch(error => {
+        setErrorMessage('title or url missing')
+        setTimeout(() => {
+          setErrorMessage(null)
         }, 5000)
       })
   }
@@ -140,16 +136,8 @@ const App = () => {
         <form onSubmit={handleLogout}>
             <button type="submit">logout</button>
         </form>
-        <Togglable buttonLabel="new note" ref={blogFormRef}>
-            <BlogForm
-              addBlog={addBlog}
-              title={title}
-              handleTitleChange={({ target }) => setTitle(target.value)}
-              author={author}
-              handleAuthorChange={({ target }) => setAuthor(target.value)}
-              url={url}
-              handleUrlChange={({ target }) => setUrl(target.value)}
-            />
+        <Togglable buttonLabel='new blog' ref={blogFormRef}>
+            <BlogForm createBlog={addBlog} />
           </Togglable>
         {blogs.map(blog =>
           <Blog key={blog.id} blog={blog} />
