@@ -23,7 +23,6 @@ const Blog = ({ blog, changeLikesOfBlog, handleBlogDelete, user }) => {
     </div>
   )
 
-
   const changeInfoStatus = () => {
     if (state === true) {
       changeState(false)
@@ -36,11 +35,11 @@ const Blog = ({ blog, changeLikesOfBlog, handleBlogDelete, user }) => {
     ? 'hide' : 'view'
 
   return (
-    <div style={blogStyle}>
+    <li className='blog' style={blogStyle}>
       {blog.title} {blog.author}
       <button onClick={changeInfoStatus}>{label}</button>
       {state === true ? showInfo() : null}
-    </div>
+    </li >
   )}
 
 Blog.propTypes = {
