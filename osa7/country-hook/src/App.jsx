@@ -32,19 +32,19 @@ const useCountry = (name) => {
                 flag: response.data.flags.png
               }, 
               found: true
-            });
+            })
           } else {
-            setCountry({ data: null, found: false });
+            setCountry({ data: null, found: false })
           }
         })
         .catch((error) => {
-          console.error('Error fetching country data:', error);
-          setCountry({ data: null, found: false });
+          console.error('Error fetching country data:', error)
+          setCountry({ data: null, found: false })
         });
     } else {
-      setCountry({ data: null, found: false });
+      setCountry({ data: null, found: false })
     }
-  }, [name]);
+  }, [name])
 
   return country
 }
