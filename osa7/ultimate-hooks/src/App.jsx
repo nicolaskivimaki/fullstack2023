@@ -25,7 +25,7 @@ const useResource = (baseUrl) => {
       })
       .catch(error => {
         console.error('Error fetching resources:', error)
-      });
+      })
   }, [baseUrl])
 
   const create = async (resource) => {
