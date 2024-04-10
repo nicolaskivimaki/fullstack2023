@@ -1,0 +1,99 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "custom-hooks are awesome!"
+    },
+    {
+      "id": 2,
+      "content": "best feature ever <3"
+    },
+    {
+      "content": "ertyrty",
+      "id": 3
+    },
+    {
+      "content": "",
+      "id": 4
+    },
+    {
+      "content": "amazing",
+      "id": 5
+    },
+    {
+      "content": "newnote",
+      "id": 6
+    },
+    {
+      "content": "newnote",
+      "id": 7
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "mluukkai",
+      "number": "040-5483923"
+    },
+    {
+      "id": 2,
+      "name": "hellas",
+      "number": "012-123123"
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 3
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 4
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 5
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 6
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 7
+    },
+    {
+      "name": "rtewr",
+      "number": "tertert",
+      "id": 8
+    },
+    {
+      "name": "tryrt",
+      "number": "tryrty",
+      "id": 9
+    },
+    {
+      "name": "tryrt",
+      "number": "tryrty",
+      "id": 10
+    },
+    {
+      "name": "jonne",
+      "number": "2341234234",
+      "id": 11
+    },
+    {
+      "name": "newname",
+      "number": "82340325445",
+      "id": 12
+    },
+    {
+      "name": "newname",
+      "number": "82340325445",
+      "id": 13
+    }
+  ]
+}
